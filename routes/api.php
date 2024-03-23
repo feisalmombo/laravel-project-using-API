@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('students', function () {
-    return 'This is a student api';
-});
+// Route::get('students', function () {
+//     return 'This is a student api';
+// });
+
+Route::get('students', [StudentController::class, 'index']);
