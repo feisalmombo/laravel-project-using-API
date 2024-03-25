@@ -18,11 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-// Route::get('students', function () {
-//     return 'This is a student api';
-// });
-
 Route::get('students', [StudentController::class, 'index']);
 
 Route::post('students', [StudentController::class, 'store']);
