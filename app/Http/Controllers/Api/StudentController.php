@@ -19,6 +19,7 @@ class StudentController extends Controller
                 'status' => 200,
                 'students' => $students
             ], 200);
+
         }else {
             return response()->json([
                 'status' => 404,
@@ -43,6 +44,7 @@ class StudentController extends Controller
                 'status' => 422,
                 'errors' => $validattor->messages()
             ], 422);
+
         }else {
 
             $student = Student::create([
@@ -58,6 +60,7 @@ class StudentController extends Controller
                     'status' => 200,
                     'message' => "Student Created Successfully"
                 ], 200);
+
             }else {
 
                 return response()->json([
@@ -77,6 +80,7 @@ class StudentController extends Controller
                 'status' => 200,
                 'student' => $student
             ], 200);
+
         }else {
 
             return response()->json([
@@ -96,6 +100,7 @@ class StudentController extends Controller
                 'status' => 200,
                 'student' => $student
             ], 200);
+
         }else {
 
             return response()->json([
@@ -121,9 +126,11 @@ class StudentController extends Controller
                 'status' => 422,
                 'errors' => $validattor->messages()
             ], 422);
+
         }else {
 
             $student = Student::find($id);
+
             if($student) {
 
                 $student->update([
@@ -137,6 +144,7 @@ class StudentController extends Controller
                     'status' => 200,
                     'message' => "Student Updated Successfully"
                 ], 200);
+
             }else {
 
                 return response()->json([
@@ -154,6 +162,12 @@ class StudentController extends Controller
         if($student) {
 
             $student->delete();
+
+            return response()->json([
+                'status' => 200,
+                'message' => "Student Deleted Successfully"
+            ], 200);
+
         }else {
 
             return response()->json([
