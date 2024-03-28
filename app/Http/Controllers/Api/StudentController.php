@@ -29,6 +29,26 @@ class StudentController extends Controller
     }
 
 
+    public function apiindex()
+    {
+        $students = Student::all();
+
+        if($students->count() > 0){
+
+            return response()->json([
+                'status' => 200,
+                'students' => $students
+            ], 200);
+
+        }else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No Records Found'
+            ], 404);
+        }
+    }
+
+
     public function store(Request $request)
     {
         $validattor = Validator::make($request->all(), [
