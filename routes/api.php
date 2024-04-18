@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::get('v1/students', [StudentController::class, 'apiindex']);
 
 
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::post('/login', [LoginController::class, 'check']);
 
 Route::get('students', [StudentController::class, 'index']);
 
