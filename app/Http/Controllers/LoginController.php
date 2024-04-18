@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function check() {
+    public function check()
+    {
         //
     }
 }
